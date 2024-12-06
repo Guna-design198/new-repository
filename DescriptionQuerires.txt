@@ -1,0 +1,28 @@
+select * from all_tab_cols;
+-- Schema:
+select owner from all_objects where object_name = 'egp_system_items';
+select distinct owner from all_objects;
+select OWNER, OBJECT_TYPE, OBJECT_NAME from all_objects where /*OBJECT_TYPE = 'VIEW' or*/ OBJECT_TYPE = 'TABLE' and OWNER not in ('FUSION');
+-- Primary Key query
+select CONSTRAINT_NAME, COLUMN_NAME from all_cons_columns where table_name = 'egp_phases_b' and position is not null;
+select table_name, CONSTRAINT_NAME, COLUMN_NAME from all_cons_columns where /*table_name = 'egp_phases_b' and*/ CONSTRAINT_NAME like '%_PK';
+-- All column constraints:
+select CONSTRAINT_NAME, COLUMN_NAME from all_cons_columns where table_name = 'egp_components_b';
+select * from all_cons_columns where /*table_name = 'ego_item_eff_b'*/ POSITION = 2 and table_name like 'e%';
+-- Not this for column constraints:
+select * from all_constraints where table_name = 'egp_system_items_b';
+-- Table Space: table_name value should be in lower case, and this query works only for tables
+select distinct tablespace_name from all_indexes where table_name = 'egp_components_b';
+-- Object Type: object_name value should be in upper case for views, and lower case for tables
+-- Better take this from serializable file if possible
+select distinct object_type from all_objects where object_name = 'EGP_SYSTEM_ITEMS';
+select distinct object_type from all_objects where object_name = 'egp_system_items_b';
+-- Indexes: status column should be dropped, VALID is not equal to active status
+select i.uniqueness, c.index_name, c.column_name, i.tablespace_name from all_ind_columns c, all_indexes i
+where c.table_name = i.table_name and c.index_name = i.index_name and c.table_name = 'egp_system_items_b' order by 2;
+-- Table Space: table_name value should be in lower case, and this query works only for tables
+select distinct tablespace_name from all_indexes where table_name = 'egp_system_items_b';
+-- Object Type: object_name value should be in upper case for views, and lower case for tables
+-- Better take this from serializable file if possible
+select distinct object_type from all_objects where object_name = 'EGP_SYSTEM_ITEMS';
+select distinct object_type from all_objects where object_name = 'egp_system_items_b';

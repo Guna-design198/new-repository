@@ -1,0 +1,2 @@
+select * from egp_system_items_b;
+select * from egp_system_items_b;

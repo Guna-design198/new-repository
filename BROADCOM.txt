@@ -1,0 +1,17 @@
+SELECT ITEMS.item_numbe,
+       ITEMS.current_phase_code,
+       classes.item_class_code
+FROm   egp_system_items_b items,
+       egp_item_classes_b classes
+WHERE  items.CURRENT_PHASE_CODE = 'Obsolete'
+       AND items.template_item_flag = 'N'
+       AND items.item_catalog_group_id = classes.item_class_id;
+
+SELECT ACD_TYPE, ITEM_TYPE FROM EGP_SYSTEM_ITEMS_B WHERE ACD_TYPE = 'PRO:D' and ITEM_TYPE = :param;
+SELECT * FROM EGP_SYSTEM_ITEMS_B WHERE DESCRIPTION = :des and ITEM_TYPE = :param;
+SELECT ITEM_NUMBER FROM EGP_SYSTEM_ITEMS_B WHERE INVENTORY_ITEM_ID = 300000001291011;
+select * 
+from 
+egp_system_items_c;
+sadsadsad
+-- This is Sampl

@@ -1,0 +1,1099 @@
+--sele * from egp_system_items_b;
+
+/*select * from egp_categories_b;*/
+
+/*select 1 from DUAL where 1=:mytime;*/
+
+/*SELE
+  ESI.ITEM_NUMBER,
+  EIC.ITEM_CLASS_CODE
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+WHERE
+  ESI.ITEM_CATALOG_GROUP_ID = EIC.ITEM_CLASS_ID
+  AND ESI.ITEM_NUMBER = '70-26155-01';*/
+
+
+/*select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from*/
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_parameters
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+/*SELECT
+  ESI.ITEM_NUMBER,
+  EIC.ITEM_CLASS_CODE FROM EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC WHERE ESI.ITEM_CATALOG_GROUP_ID = EIC.ITEM_CLASS_ID
+  AND ESI.ITEM_NUMBER = '70-26155-01';*/
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSER INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+select * fro egp_bom_compare_results;
+
+select * from egp_categories_tl;
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSER INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSER INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+ansisdkksmdck
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+select * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+elect * from egp_system_items_b;
+
+
+
+select * from egp_bom_compare_results;
+
+
+select * from egp_categories_b;
+
+
+
+select 1 from DUAL where 1=:mytime;
+
+SELECT
+  esi.item_number , eic.item_class_code
+
+FROM
+  EGP_SYSTEM_ITEMS_B ESI,
+  EGP_ITEM_CLASSES_B EIC
+
+WHERE
+  esi.item_catalog_group_id = eic.item_class_id
+
+AND
+  esi.item_number = '70-26155-01';
+
+select
+  ORIG_SYSTEM_ID,
+  ORIG_SYSTEM,
+  ORIG_SYSTEM_TYPE
+from
+  FUSION.hz_orig_systems_b
+where
+  enable_for_items_flag = 'Y'
+  and status = 'A';
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ORGANIZATION_ID,
+    ITEM_NUMBER,
+    DESCRIPTION,
+    ITEM_CATALOG_GROUP_NAME,
+    PRIMARY_UOM_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    Current_phase_code,
+    TEMPLATE_ID,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & inv_org_id,
+    --Inventory ORGANIZATION_ID
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Item Description',
+    --DESCRIPTION
+    '&Item_Class',
+    --ITEM_CATALOG_GROUP_NAME - This is Item Class Name
+    '&Primary_UOM_Code',
+    --PRIMARY_UOM_CODE
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Current_Phase',
+    --Current_phase_code (Lifecycle phase)
+    & template_id,
+    -- Item template Id
+    & Batch_Id,
+    --Batch ID
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+INSERT INTO
+  fusion.EGP_SYSTEM_ITEMS_INTERFACE (
+    ITEM_NUMBER,
+    ORGANIZATION_CODE,
+    INVENTORY_ITEM_STATUS_CODE,
+    ITEM_CATALOG_GROUP_NAME,
+    BATCH_ID,
+    SOURCE_SYSTEM_ID,
+    TRANSACTION_TYPE
+  )
+VALUES
+  (
+    & Item_Number,
+    --ITEM_NUMBER 'ITEM-PIMDH-Create-Item'
+    '&Inv_Org_code',
+    --ORGANIZATION_CODE Ex: M1, V1 etc.
+    '&Item_Status_Code',
+    --INVENTORY_ITEM_STATUS_CODE
+    '&Item_class_name',
+    --ITEM_CATALOG_GROUP_NAME Eg: 'Root Item Class'
+    & Batch_id,
+    --Batch ID should be same as the one previously inserted
+    & Src_System_Id,
+    -- Source System ID
+    'CREATE' --TRANSACTION_TYPE
+  );
+
+--Unmatched Parentheses:
+SELECT item_number,
+       current_phase_code,
+       C.item_class_code,
+       I.CREATION_DATE
+FROM   egp_system_items_b I,
+       ego_item_eff_b E,
+       egp_item_classes_vl C
+WHERE  I.inventory_item_id = E.inventory_item_id
+       AND I.organization_id = E.organization_id
+       AND I.item_catalog_group_id = C.item_class_id
+       AND I.acd_type='PROD'
+       AND I.item_catalog_group_id NOT IN ( 100000011369001 )   
+ORDER BY item_number
