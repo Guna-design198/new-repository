@@ -26,3 +26,4 @@ select distinct tablespace_name from all_indexes where table_name = 'egp_system_
 -- Better take this from serializable file if possible
 select distinct object_type from all_objects where object_name = 'EGP_SYSTEM_ITEMS';
 select distinct object_type from all_objects where object_name = 'egp_system_items_b';
+-- Code Modified
